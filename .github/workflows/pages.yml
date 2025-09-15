@@ -17,15 +17,15 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: { node-version: 20 }
-      - run: npm ci
-      # crea env.js si usás Supabase (sino, borra este bloque)
-      - name: Create env.js
+      - name: Install deps
+        run: npm install --no-audit --no-fund
+      - name: Create env.js   # si usás Supabase
         run: |
           mkdir -p src/assets/js
           cat > src/assets/js/env.js << 'EOF'
           window.ENV = {
-            SUPABASE_URL: "${{ secrets.SUPABASE_URL || '' }}",
-            SUPABASE_ANON_KEY: "${{ secrets.SUPABASE_ANON_KEY || '' }}"
+            SUPABASE_URL: "${{ secrets.SUPABASE_URL }}",
+            SUPABASE_ANON_KEY: "${{ secrets.SUPABASE_ANON_KEY }}"
           };
           EOF
       - run: npm run build
