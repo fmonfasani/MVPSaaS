@@ -1,21 +1,15 @@
 {
   "name": "web",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "private": true,
   "scripts": {
-    "build:css": "npx tailwindcss -i ./src/assets/css/main.css -o ./src/assets/css/out.css --minify",
-    "build": "npm run build:css && npx @11ty/eleventy"
+    "build:css": "tailwindcss -i ./src/assets/css/main.css -o ./src/assets/css/out.css --minify",
+    "build": "npm run build:css && eleventy"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
     "@11ty/eleventy": "^3.1.2",
-    "autoprefixer": "^10.4.21",
-    "concurrently": "^8.2.2",
-    "postcss": "^8.5.6",
-    "tailwindcss": "^4.1.13"
+    "tailwindcss": "^3.4.13",
+    "postcss": "^8.4.38",
+    "autoprefixer": "^10.4.19"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.57.4"
