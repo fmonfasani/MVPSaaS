@@ -4,9 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build:css": "tailwindcss -i ./src/assets/css/main.css -o ./src/assets/css/out.css --minify",
-    "build": "npm run build:css && npx @11ty/eleventy",
-    "dev": "concurrently \"npx @11ty/eleventy --serve\" \"tailwindcss -i ./src/assets/css/main.css -o ./src/assets/css/out.css --watch\""
+    "build:css": "npx tailwindcss -i ./src/assets/css/main.css -o ./src/assets/css/out.css --minify",
+    "build": "npm run build:css && npx @11ty/eleventy"
   },
   "keywords": [],
   "author": "",
